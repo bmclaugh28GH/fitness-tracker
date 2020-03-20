@@ -42,8 +42,11 @@ app.get("/all", (req, res) => {
 // INSERT 
 // **********************************************
 
-app.post("/submit", ({ body }, res) => {
-  console.log (body); 
+//app.post("/submit", ({ body }, res) => {
+
+app.post("/submit",  ({ body }, res) => {
+  console.log(body);
+
   Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
