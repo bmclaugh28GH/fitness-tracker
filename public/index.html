@@ -1,0 +1,52 @@
+<!-- *****************************************-->
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport">
+	<title>Workout Tracker</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<!-- *****************************************-->
+<!-- *****************************************-->
+<body>
+
+  <!-- ***************************************-->
+  <!-- ***************************************-->
+
+  <div class="container col-md-3 col-md-offset-2" id="workoutList">
+
+<!--    <div class="card">
+      <h5 class="card-title">You worked out 3/19/2020</h5>
+      <div class="card-body"></div>
+        <p class="card-text">Lifting </p>
+        <p class="card-text">200 calories </p>
+        <a href="#" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+-->
+  </div>
+
+  <!-- ***************************************-->
+  <!-- ***************************************-->
+
+  <div class="container col-md-3 col-md-offset-1">
+    <h2>Add A Workout</h2>
+    <hr>
+    <form action="/submit" method="post">
+      <input type="text" class="form-control" name="workoutName" placeholder="workout" autofocus>
+      <input type="text" class="form-control" name="caloriesBurned" placeholder="calories" autofocus>
+      <button class="btn btn-lg btn-primary btn-block" id="submit" type="submit">Submit</button>
+    </form>
+  </div>
+
+<!-- *****************************************-->
+<!-- *****************************************-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>
