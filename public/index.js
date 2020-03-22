@@ -1,3 +1,4 @@
+
 // **********************************************
 // globals
 // **********************************************
@@ -5,6 +6,7 @@ const workoutListElem = $("#workoutList");
 const submitBtnElem = $("#submitBtn"); 
 var workoutNameElem = $("#workoutName"); 
 var caloriesBurnedElem = $("#caloriesBurned"); 
+var ctx = $("#myChart");
 var workoutID; 
 
 // **********************************************
@@ -58,8 +60,57 @@ function getWorkouts () {
     response.json().then(function(data) {
       console.log (data); 
       loadWorkouts(data); 
-    })
 
+      var myLabels = [];
+      data.forEach(el => myLabels.push(el.workoutName));
+      console.log (myLabels); 
+
+      var myData = [];
+      data.forEach(el => myData.push(el.caloriesBurned));
+      console.log (myData); 
+
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+            label: 'Calories Burned',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      }); // end chart
+      myChart.config.data.labels = myLabels;
+      myChart.config.data.datasets[0].data = myData;
+      myChart.update();
+      console.log (myChart); 
+
+    })
   })
 }; // getWorkouts
 
@@ -131,8 +182,6 @@ workoutListElem.on("click", function(e) {
     caloriesBurnedElem.val (caloriesBurned); 
 
   }
-
-
 }); // workoutListElem click 
 
 // **********************************************

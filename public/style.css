@@ -1,0 +1,8 @@
+#workoutName, #caloriesBurned {
+  width: 600px; 
+}
+#submitBtn{
+  width:100px;
+  text-align: center;
+  margin-top:8px; 
+}
