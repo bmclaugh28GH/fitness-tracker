@@ -35,12 +35,12 @@ function loadWorkouts (data) {
       <div class="card-body"></div>
         <p data-id="${data[i]._id}" class="card-text workoutName">${data[i].workoutName}</p>
         <p data-id="${data[i]._id}" class="card-text caloriesBurned">${data[i].caloriesBurned} calories </p>
-        <a href="#" class="btn btn-primary updateButton" data-id="${data[i]._id}">Update</a>
         <a href="#" class="btn btn-primary deleteButton" data-id="${data[i]._id}">Delete</a>
       </div>
     </div>
     <br>
     <hr>`
+//        <a href="#" class="btn btn-primary updateButton" data-id="${data[i]._id}">Update</a>
 
     workoutListElem.append (myCard); 
 
